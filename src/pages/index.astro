@@ -1,0 +1,974 @@
+---
+// Página principal de la boda de Aida y Javier
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Aida y Javier - Boda</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Lora:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Navegación -->
+		<nav class="nav">
+			<div class="nav-container">
+				<div class="nav-logo">A & J</div>
+				<ul class="nav-menu">
+					<li><a href="#home">Inicio</a></li>
+					<li><a href="#details">Detalles</a></li>
+					<li><a href="#rsvp">Confirmar</a></li>
+					<li><a href="#faq">FAQ</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Sección Hero -->
+		<section id="home" class="hero">
+			<div class="hero-container">
+				<div class="hero-image-side">
+					<img src="/5b3be316-73fc-4168-bad5-e7cee115358a.JPG" alt="Aida y Javier" class="hero-image">
+				</div>
+				<div class="hero-content-side">
+					<div class="hero-content">
+						<h1 class="hero-title">Aida y Javier</h1>
+						<p class="hero-subtitle">Nuestra Boda</p>
+						<div class="hero-date">16 de agosto, 2025</div>
+						<div class="hero-location">Finca Salamanca, Gúimar, Tenerife</div>
+						<div class="hero-tagline">Nos encantaría enseñaros parte de nuestro paraíso y comenzar esta aventura juntos. ¡Os esperamos!</div>
+					</div>
+				</div>
+			</div>
+			<div class="hero-scroll">
+				<span>↓</span>
+			</div>
+		</section>
+
+
+		<!-- Detalles de la Boda -->
+		<section id="details" class="details">
+			<div class="container">
+				<h2 class="section-title">Detalles de la Boda</h2>
+				<div class="details-grid">
+					<div class="detail-card">
+						<div class="card-image">
+							<img src="/champagne_beach.png" alt="Las Teresitas preboda">
+						</div>
+						<div class="card-content">
+							<h3>Preboda</h3>
+							<p><strong>Hora:</strong> 14:30</p>
+							<p><strong>Lugar:</strong> Las Teresitas</p>
+							<p><a href="https://maps.app.goo.gl/YxR4qg5eKg2MiFLfA">Dirección</a></p>
+						</div>
+					</div>
+					<div class="detail-card">
+						<div class="card-image">
+							<img src="/flowers.png" alt="Finca Salamanca ceremonia">
+						</div>
+						<div class="card-content">
+							<h3>Ceremonia</h3>
+							<p><strong>Hora:</strong> 12:30</p>
+							<p><strong>Lugar:</strong> Finca Salamanca</p>
+							<p><a href="https://maps.app.goo.gl/FqZ35V2f4k2HfMnk9">Dirección</a></p>
+						</div>
+					</div>
+					<div class="detail-card">
+						<div class="card-image">
+							<img src="/dresscode.png" alt="Código de vestimenta">
+						</div>
+						<div class="card-content">
+							<h3>Código de Vestimenta</h3>
+							<p><strong>Estilo:</strong> Elegante informal</p>
+							<p><strong>Colores:</strong> Tonos pastel bienvenidos</p>
+							<p><strong>Nota:</strong> Ceremonia al aire libre</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sección RSVP -->
+		<section id="rsvp" class="rsvp">
+			<div class="container">
+				<h2 class="section-title">RSVP</h2>
+				<p class="rsvp-text">¡Estamos deseando celebrar con vosotros! Por favor, confirma tu asistencia antes del 1 de julio de 2025.</p>
+				<form class="rsvp-form" id="rsvpForm">
+					<div class="form-group">
+						<label for="name">Nombre Completo *</label>
+						<input type="text" id="name" name="name" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Correo Electrónico *</label>
+						<input type="email" id="email" name="email" required>
+					</div>
+					<div class="form-group">
+						<label for="attending">¿Vas a venir a la boda? Nos hace mucha ilusión compartir este día con vosotros *</label>
+						<div class="radio-group">
+							<label class="radio-label">
+								<input type="radio" name="attending" value="yes" id="attending-yes" required>
+								<span>¡Sí, estaré allí! 🎉</span>
+							</label>
+							<label class="radio-label">
+								<input type="radio" name="attending" value="no" id="attending-no" required>
+								<span>Lo siento, no podré asistir 😔</span>
+							</label>
+						</div>
+					</div>
+
+					<!-- Conditional sections that show only when "Yes" is selected -->
+					<div id="attending-yes-questions" class="conditional-section">
+						<div class="form-group">
+							<label for="plus-one-name">Nombre del acompañante (opcional)</label>
+							<input type="text" id="plus-one-name" name="plus-one-name" placeholder="Si vienes con alguien, escribe su nombre aquí">
+						</div>
+						
+						<div class="form-group">
+							<label for="events">¿A qué eventos vas a asistir? *</label>
+							<div class="checkbox-group">
+								<label class="checkbox-label">
+									<input type="checkbox" name="events" value="preboda">
+									<span>Preboda en Las Teresitas (14:30)</span>
+								</label>
+								<label class="checkbox-label">
+									<input type="checkbox" name="events" value="ceremonia">
+									<span>Ceremonia en Finca Salamanca (12:30)</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="dietary">Restricciones Alimentarias</label>
+							<textarea id="dietary" name="dietary" placeholder="Por favor, haznos saber sobre cualquier restricción alimentaria o alergia"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="transport">¿Necesitas transporte?</label>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="transport" value="yes">
+									<span>Sí, necesito transporte</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="transport" value="no">
+									<span>No, tengo transporte propio</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="message">Mensaje Especial (Opcional)</label>
+							<textarea id="message" name="message" placeholder="¡Comparte tu emoción o buenos deseos!"></textarea>
+						</div>
+					</div>
+
+					<!-- Message for those who can't attend -->
+					<div id="attending-no-questions" class="conditional-section">
+						<div class="form-group">
+							<label for="no-message">Nos da mucha pena que no puedas acompañarnos. ¿Quieres dejarnos un mensaje?</label>
+							<textarea id="no-message" name="no-message" placeholder="Sabemos que estarás con nosotros en espíritu ❤️"></textarea>
+						</div>
+					</div>
+
+					<button type="submit" class="rsvp-button">Enviar Confirmación</button>
+				</form>
+			</div>
+		</section>
+
+		<!-- Sección FAQ -->
+		<section id="faq" class="faq">
+			<div class="container">
+				<h2 class="section-title">Preguntas Frecuentes</h2>
+				<div class="faq-list">
+					<div class="faq-item">
+						<button class="faq-question">¿Qué debo ponerme?</button>
+						<div class="faq-answer">
+							<p>Vamos por un estilo elegante informal. Piensa en vestimenta de cóctel con un toque de elegancia. Los tonos pastel y florales son perfectos. Como la ceremonia es al aire libre, considera zapatos cómodos en lugar de tacones altos.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Pueden venir niños?</button>
+						<div class="faq-answer">
+							<p>Adoramos a los niños, pero hemos decidido que esta sea una celebración solo para adultos para permitir que todos se relajen y disfruten de la velada. Esperamos que lo entendáis y podáis organizar el cuidado de los niños para ese día.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿A qué hora debo llegar?</button>
+						<div class="faq-answer">
+							<p>Por favor, llega 15-20 minutos antes de que comience la ceremonia a las 12:30. Esto te dará tiempo para encontrar aparcamiento y sentarte antes de que empecemos.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Hay aparcamiento disponible?</button>
+						<div class="faq-answer">
+							<p>¡Sí! Finca Salamanca tiene una zona de aparcamiento amplia que puede acomodar a todos los invitados. También habrá servicio de aparcacoches disponible para vuestra comodidad.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Habrá barra libre?</button>
+						<div class="faq-answer">
+							<p>¡Por supuesto! Tendremos una barra libre completa con cócteles especiales, vino, cerveza y opciones sin alcohol disponibles durante toda la recepción.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Tenéis lista de regalos?</button>
+						<div class="faq-answer">
+							<p>¡Vuestra presencia es el único regalo que necesitamos! Si queréis contribuir a nuestro futuro juntos, tenemos una pequeña lista de regalos y un fondo para la luna de miel disponible bajo petición.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Qué pasa si llueve?</button>
+						<div class="faq-answer">
+							<p>¡No os preocupéis! Finca Salamanca tiene un hermoso pabellón cubierto como plan de respaldo. ¡De cualquier manera, va a ser un día mágico!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<p>¡No podemos esperar a celebrar con vosotros!</p>
+				<p class="footer-contact">¿Preguntas? Contactadnos en <a href="mailto:aida.javi.boda@gmail.com">aida.javi.boda@gmail.com</a></p>
+			</div>
+		</footer>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary-color: #d4af37;
+				--secondary-color: #8b7355;
+				--accent-color: #f7f3f0;
+				--text-dark: #2c2c2c;
+				--text-light: #666;
+				--white: #ffffff;
+				--font-cursive: 'Great Vibes', cursive;
+				--font-script: 'Dancing Script', cursive;
+				--font-serif: 'Playfair Display', serif;
+				--font-elegant: 'Lora', serif;
+				--font-sans: 'Inter', sans-serif;
+			}
+
+			body {
+				font-family: var(--font-sans);
+				line-height: 1.6;
+				color: var(--text-dark);
+				overflow-x: hidden;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			/* Navegación */
+			.nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				z-index: 1000;
+				padding: 1rem 0;
+				transition: all 0.3s ease;
+			}
+
+			.nav-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.nav-logo {
+				font-family: var(--font-serif);
+				font-size: 1.5rem;
+				font-weight: 600;
+				color: var(--primary-color);
+			}
+
+			.nav-menu {
+				display: flex;
+				list-style: none;
+				gap: 2rem;
+			}
+
+			.nav-menu a {
+				text-decoration: none;
+				color: var(--text-dark);
+				font-weight: 500;
+				transition: color 0.3s ease;
+			}
+
+			.nav-menu a:hover {
+				color: var(--primary-color);
+			}
+
+			/* Sección Hero */
+			.hero {
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+				background: linear-gradient(135deg, var(--accent-color) 0%, #f0ebe5 100%);
+			}
+
+			.hero-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+			}
+
+			.hero-image-side {
+				width: 66.67%;
+				height: 100%;
+				position: relative;
+			}
+
+			.hero-image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+
+			.hero-content-side {
+				width: 33.33%;
+				height: 100%;
+				position: relative;
+				padding: 4rem 3rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(247, 243, 240, 0.2) 100%);
+				backdrop-filter: blur(5px);
+			}
+
+			.hero-content {
+				width: 100%;
+			}
+
+			.hero-title {
+				font-family: var(--font-cursive);
+				font-size: 3.8rem;
+				font-weight: 400;
+				color: var(--text-dark);
+				margin-bottom: 0.8rem;
+				text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+				line-height: 1.1;
+				letter-spacing: 0.5px;
+			}
+
+			.hero-subtitle {
+				font-family: var(--font-script);
+				font-size: 1.4rem;
+				font-weight: 600;
+				color: var(--primary-color);
+				margin-bottom: 2rem;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+			}
+
+			.hero-date {
+				font-family: var(--font-elegant);
+				font-size: 1.8rem;
+				font-weight: 500;
+				color: var(--text-dark);
+				margin-bottom: 0.8rem;
+				letter-spacing: 0.5px;
+			}
+
+			.hero-location {
+				font-family: var(--font-elegant);
+				font-size: 1.1rem;
+				font-weight: 400;
+				color: var(--text-light);
+				margin-bottom: 2rem;
+				line-height: 1.4;
+			}
+
+			.hero-tagline {
+				font-family: var(--font-elegant);
+				font-size: 1rem;
+				font-weight: 400;
+				color: var(--text-dark);
+				font-style: italic;
+				line-height: 1.6;
+				letter-spacing: 0.3px;
+				opacity: 0.9;
+			}
+
+			.hero-scroll {
+				position: absolute;
+				bottom: 2rem;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 0.9rem;
+				color: var(--text-dark);
+				animation: bounce 2s infinite;
+				z-index: 2;
+				background: rgba(255, 255, 255, 0.8);
+				padding: 0.5rem 1rem;
+				border-radius: 20px;
+				backdrop-filter: blur(5px);
+			}
+
+			@keyframes bounce {
+				0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+				40% { transform: translateX(-50%) translateY(-10px); }
+				60% { transform: translateX(-50%) translateY(-5px); }
+			}
+
+			/* Galería */
+			.gallery {
+				padding: 6rem 0;
+				background: var(--white);
+			}
+
+			.gallery-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+
+			.gallery-item {
+				position: relative;
+				aspect-ratio: 4/3;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.gallery-item:hover {
+				transform: translateY(-5px);
+			}
+
+			.gallery-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+
+			.gallery-item:hover img {
+				transform: scale(1.05);
+			}
+
+			.gallery-overlay {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: linear-gradient(transparent, rgba(0,0,0,0.8));
+				color: var(--white);
+				padding: 2rem 1rem 1rem;
+				transform: translateY(100%);
+				transition: transform 0.3s ease;
+			}
+
+			.gallery-item:hover .gallery-overlay {
+				transform: translateY(0);
+			}
+
+			.gallery-overlay p {
+				font-size: 1rem;
+				font-weight: 500;
+				text-align: center;
+			}
+
+			/* Estilos de Sección */
+			.section-title {
+				font-family: var(--font-serif);
+				font-size: 2.5rem;
+				text-align: center;
+				margin-bottom: 3rem;
+				color: var(--text-dark);
+			}
+
+			/* Sección de Detalles */
+			.details {
+				padding: 6rem 0;
+				background: var(--accent-color);
+			}
+
+			.details-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 2rem;
+				margin-top: 2rem;
+			}
+
+			.detail-card {
+				background: var(--white);
+				border-radius: 16px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.detail-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.card-image {
+				height: 200px;
+				overflow: hidden;
+			}
+
+			.card-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+
+			.detail-card:hover .card-image img {
+				transform: scale(1.05);
+			}
+
+			.card-content {
+				padding: 2rem;
+				text-align: center;
+			}
+
+			.card-content h3 {
+				font-family: var(--font-serif);
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				margin-bottom: 1rem;
+			}
+
+			.card-content p {
+				margin-bottom: 0.5rem;
+				color: var(--text-light);
+			}
+
+			/* Sección RSVP */
+			.rsvp {
+				padding: 6rem 0;
+				background: linear-gradient(135deg, #f8f5f2 0%, var(--accent-color) 100%);
+			}
+
+			.rsvp-text {
+				text-align: center;
+				font-size: 1.2rem;
+				color: var(--text-light);
+				margin-bottom: 3rem;
+			}
+
+			.rsvp-form {
+				max-width: 600px;
+				margin: 0 auto;
+				background: var(--white);
+				padding: 3rem;
+				border-radius: 16px;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+			}
+
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+
+			.form-group label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 500;
+				color: var(--text-dark);
+			}
+
+			.form-group input,
+			.form-group select,
+			.form-group textarea {
+				width: 100%;
+				padding: 0.75rem;
+				border: 2px solid #e0e0e0;
+				border-radius: 8px;
+				font-size: 1rem;
+				transition: border-color 0.3s ease;
+			}
+
+			.form-group input:focus,
+			.form-group select:focus,
+			.form-group textarea:focus {
+				outline: none;
+				border-color: var(--primary-color);
+			}
+
+			.form-group textarea {
+				resize: vertical;
+				min-height: 100px;
+			}
+
+			.radio-group {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+
+			.radio-label {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				cursor: pointer;
+				padding: 0.5rem;
+				border-radius: 6px;
+				transition: background-color 0.3s ease;
+			}
+
+			.radio-label:hover {
+				background-color: var(--accent-color);
+			}
+
+			.radio-label input[type="radio"] {
+				width: auto;
+			}
+
+			.checkbox-group {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+
+			.checkbox-label {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				cursor: pointer;
+				padding: 0.5rem;
+				border-radius: 6px;
+				transition: background-color 0.3s ease;
+			}
+
+			.checkbox-label:hover {
+				background-color: var(--accent-color);
+			}
+
+			.checkbox-label input[type="checkbox"] {
+				width: auto;
+			}
+
+			.conditional-section {
+				max-height: 0;
+				opacity: 0;
+				overflow: hidden;
+				transition: all 0.5s ease;
+				margin-top: 0;
+			}
+
+			.conditional-section.show {
+				max-height: 2000px;
+				opacity: 1;
+				margin-top: 1rem;
+			}
+
+			.rsvp-button {
+				width: 100%;
+				background: var(--primary-color);
+				color: var(--white);
+				border: none;
+				padding: 1rem 2rem;
+				font-size: 1.1rem;
+				font-weight: 600;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+				margin-top: 1rem;
+			}
+
+			.rsvp-button:hover {
+				background: var(--secondary-color);
+			}
+
+			/* Sección FAQ */
+			.faq {
+				padding: 6rem 0;
+				background: var(--white);
+			}
+
+			.faq-list {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.faq-item {
+				margin-bottom: 1rem;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				overflow: hidden;
+			}
+
+			.faq-question {
+				width: 100%;
+				padding: 1.5rem;
+				background: var(--accent-color);
+				border: none;
+				text-align: left;
+				font-size: 1.1rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+
+			.faq-question:hover {
+				background: #f0ebe5;
+			}
+
+			.faq-answer {
+				padding: 0 1.5rem;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.3s ease, padding 0.3s ease;
+			}
+
+			.faq-item.active .faq-answer {
+				padding: 1.5rem;
+				max-height: 200px;
+			}
+
+			/* Footer */
+			.footer {
+				background: var(--text-dark);
+				color: var(--white);
+				padding: 3rem 0;
+				text-align: center;
+			}
+
+			.footer-contact a {
+				color: var(--primary-color);
+				text-decoration: none;
+			}
+
+			/* Diseño Responsivo */
+			@media (max-width: 768px) {
+				.nav-menu {
+					gap: 1rem;
+					font-size: 0.9rem;
+				}
+
+				.hero-container {
+					flex-direction: column;
+				}
+
+				.hero-image-side {
+					width: 100%;
+					height: 40%;
+					order: 1;
+				}
+
+				.hero-content-side {
+					width: 100%;
+					height: 60%;
+					padding: 2rem 1rem;
+					order: 2;
+				}
+
+				.hero-title {
+					font-size: 3rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.2rem;
+				}
+
+				.hero-date {
+					font-size: 1.5rem;
+				}
+
+				.hero-location {
+					font-size: 1rem;
+				}
+
+				.hero-tagline {
+					font-size: 0.95rem;
+				}
+
+				.section-title {
+					font-size: 2rem;
+				}
+
+				.gallery-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.details-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.rsvp-form {
+					padding: 2rem;
+				}
+
+				.radio-group {
+					flex-direction: column;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.nav-menu {
+					display: none;
+				}
+
+				.hero-content-side {
+					padding: 1rem;
+				}
+
+				.hero-title {
+					font-size: 2.5rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.1rem;
+				}
+
+				.hero-date {
+					font-size: 1.3rem;
+				}
+
+				.hero-location {
+					font-size: 0.95rem;
+				}
+
+				.hero-tagline {
+					font-size: 0.9rem;
+				}
+
+				.container {
+					padding: 0 15px;
+				}
+			}
+		</style>
+
+		<script>
+			// Funcionalidad de FAQ
+			document.addEventListener('DOMContentLoaded', function() {
+				const faqItems = document.querySelectorAll('.faq-item');
+				
+				faqItems.forEach(item => {
+					const question = item.querySelector('.faq-question');
+					
+					question.addEventListener('click', () => {
+						const isActive = item.classList.contains('active');
+						
+						// Cerrar todos los otros elementos FAQ
+						faqItems.forEach(otherItem => {
+							otherItem.classList.remove('active');
+						});
+						
+						// Alternar elemento actual
+						if (!isActive) {
+							item.classList.add('active');
+						}
+					});
+				});
+
+				// Funcionalidad del formulario condicional
+				const attendingYes = document.getElementById('attending-yes');
+				const attendingNo = document.getElementById('attending-no');
+				const yesQuestions = document.getElementById('attending-yes-questions');
+				const noQuestions = document.getElementById('attending-no-questions');
+
+				function showConditionalSections() {
+					if (attendingYes.checked) {
+						yesQuestions.classList.add('show');
+						noQuestions.classList.remove('show');
+					} else if (attendingNo.checked) {
+						yesQuestions.classList.remove('show');
+						noQuestions.classList.add('show');
+					} else {
+						yesQuestions.classList.remove('show');
+						noQuestions.classList.remove('show');
+					}
+				}
+
+				// Listen for changes in attendance radio buttons
+				attendingYes.addEventListener('change', showConditionalSections);
+				attendingNo.addEventListener('change', showConditionalSections);
+
+				// Envío del formulario RSVP
+				const rsvpForm = document.getElementById('rsvpForm');
+				rsvpForm.addEventListener('submit', function(e) {
+					e.preventDefault();
+					
+					// Obtener datos del formulario
+					const formData = new FormData(rsvpForm);
+					const data = Object.fromEntries(formData);
+					
+					// Validación básica
+					if (!data.name || !data.email || !data.attending) {
+						alert('Por favor, completa todos los campos obligatorios.');
+						return;
+					}
+
+					// Validación condicional para asistentes
+					if (data.attending === 'yes') {
+						// Check if at least one event is selected
+						const events = formData.getAll('events');
+						if (events.length === 0) {
+							alert('Por favor, selecciona al menos un evento al que vas a asistir.');
+							return;
+						}
+					}
+					
+					// En una aplicación real, enviarías estos datos a un servidor
+					let message = '¡Gracias por tu confirmación! ';
+					if (data.attending === 'yes') {
+						message += 'Estamos emocionados de celebrar contigo';
+						if (data['plus-one-name']) {
+							message += ` y con ${data['plus-one-name']}`;
+						}
+						message += '. ';
+					} else {
+						message += 'Sentimos que no puedas acompañarnos, pero sabemos que estarás con nosotros en espíritu. ';
+					}
+					message += 'Nos pondremos en contacto pronto.';
+					
+					alert(message);
+					rsvpForm.reset();
+					// Reset conditional sections
+					yesQuestions.classList.remove('show');
+					noQuestions.classList.remove('show');
+				});
+
+				// Desplazamiento suave para enlaces de navegación
+				const navLinks = document.querySelectorAll('.nav-menu a');
+				navLinks.forEach(link => {
+					link.addEventListener('click', function(e) {
+						e.preventDefault();
+						const targetId = this.getAttribute('href');
+						const targetSection = document.querySelector(targetId);
+						
+						if (targetSection) {
+							const offsetTop = targetSection.getBoundingClientRect().top + window.pageYOffset - 80;
+							window.scrollTo({
+								top: offsetTop,
+								behavior: 'smooth'
+							});
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
