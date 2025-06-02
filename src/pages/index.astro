@@ -127,7 +127,10 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="events">¿A qué eventos vas a asistir? *</label>
+							<div class="activity-description">
+								<h3><strong>Eventos de la Boda</strong></h3>
+								<p>Tenemos dos celebraciones especiales preparadas para vosotros. Por favor, indica a cuáles vas a asistir:</p>
+							</div>
 							<div class="checkbox-group">
 								<label class="checkbox-label">
 									<input type="checkbox" name="events" value="preboda">
@@ -141,12 +144,10 @@
 						</div>
 
 						<div class="form-group">
-							<label for="dietary">Restricciones Alimentarias</label>
-							<textarea id="dietary" name="dietary" placeholder="Por favor, haznos saber sobre cualquier restricción alimentaria o alergia"></textarea>
-						</div>
-						
-						<div class="form-group">
-							<label for="transport">¿Necesitas transporte?</label>
+							<div class="activity-description">
+								<h3><strong>Transporte - Guagua desde Santa Cruz</strong></h3>
+								<p>Hemos organizado transporte en guagua desde Santa Cruz de Tenerife para facilitar vuestro desplazamiento a la boda:</p>
+							</div>
 							<div class="radio-group">
 								<label class="radio-label">
 									<input type="radio" name="transport" value="yes">
@@ -155,6 +156,49 @@
 								<label class="radio-label">
 									<input type="radio" name="transport" value="no">
 									<span>No, tengo transporte propio</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="activity-description">
+								<h3><strong>Restricciones Alimentarias</strong></h3>
+								<p>Queremos asegurarnos de que todos disfrutéis de la comida. Por favor, haznos saber cualquier restricción o alergia:</p>
+							</div>
+							<textarea id="dietary" name="dietary" placeholder="Indica aquí cualquier restricción alimentaria, alergia o preferencia especial"></textarea>
+						</div>
+
+						<div class="form-group">
+							<div class="activity-description">
+								<h3><strong>Preboda del Viernes - Las Teresitas</strong></h3>
+								<p>Queremos empezar la celebración el viernes por la tarde con una preboda especial en la playa de Las Teresitas, donde pasaremos un rato muy divertido mientras atardece:</p>
+							</div>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="preboda" value="yes">
+									<span>Sí, estaré allí</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="preboda" value="no">
+									<span>No podré asistir</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="activity-description">
+								<h3><strong>Actividades del Jueves 14 de agosto</strong></h3>
+								<p>Como ya os dijimos, nos hace mucha ilusión enseñaros nuestro paraíso. Hemos organizado dos actividades especiales para que podáis conocer la belleza de Tenerife:</p>
+							</div>
+							<br/>
+							<div class="checkbox-group">
+								<label class="checkbox-label">
+									<input type="checkbox" name="teide-activity" value="yes">
+									<span>¿Vas a venir a la actividad del Parque Nacional del Teide el Jueves por la mañana?</span>
+								</label>
+								<label class="checkbox-label">
+									<input type="checkbox" name="guachinche" value="yes">
+									<span>¿Vas a venir a la comida en un Guachinche el Jueves 14 de agosto?</span>
 								</label>
 							</div>
 						</div>
@@ -184,45 +228,57 @@
 				<h2 class="section-title">Preguntas Frecuentes</h2>
 				<div class="faq-list">
 					<div class="faq-item">
-						<button class="faq-question">¿Qué debo ponerme?</button>
+						<button class="faq-question">¿Qué es la diferencia entre la preboda y la ceremonia?</button>
 						<div class="faq-answer">
-							<p>Vamos por un estilo elegante informal. Piensa en vestimenta de cóctel con un toque de elegancia. Los tonos pastel y florales son perfectos. Como la ceremonia es al aire libre, considera zapatos cómodos en lugar de tacones altos.</p>
+							<p>La <strong>ceremonia</strong> es el evento principal el sábado a las 12:30 en Finca Salamanca. La <strong>preboda del viernes</strong> es una celebración más relajada en la playa de Las Teresitas por la tarde, donde podremos conocernos mejor y disfrutar del atardecer juntos.</p>
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿Pueden venir niños?</button>
+						<button class="faq-question">¿Qué incluye la excursión al Teide el jueves?</button>
 						<div class="faq-answer">
-							<p>Adoramos a los niños, pero hemos decidido que esta sea una celebración solo para adultos para permitir que todos se relajen y disfruten de la velada. Esperamos que lo entendáis y podáis organizar el cuidado de los niños para ese día.</p>
+							<p>La excursión al Parque Nacional del Teide es una actividad relajada y accesible para todos. Visitaremos los paisajes volcánicos más impresionantes de Tenerife. No requiere ningún nivel físico especial, solo ganas de disfrutar de nuestro paraíso natural.</p>
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿A qué hora debo llegar?</button>
+						<button class="faq-question">¿Qué es un Guachinche?</button>
 						<div class="faq-answer">
-							<p>Por favor, llega 15-20 minutos antes de que comience la ceremonia a las 12:30. Esto te dará tiempo para encontrar aparcamiento y sentarte antes de que empecemos.</p>
+							<p>Un Guachinche es un restaurante tradicional canario, generalmente familiar, donde se sirve comida casera auténtica y vino local. Es la mejor manera de experimentar la verdadera gastronomía canaria en un ambiente acogedor y tradicional.</p>
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿Hay aparcamiento disponible?</button>
+						<button class="faq-question">¿Cómo funciona el transporte en guagua desde Santa Cruz?</button>
 						<div class="faq-answer">
-							<p>¡Sí! Finca Salamanca tiene una zona de aparcamiento amplia que puede acomodar a todos los invitados. También habrá servicio de aparcacoches disponible para vuestra comodidad.</p>
+							<p>Hemos organizado una guagua (autobús) que saldrá desde Santa Cruz de Tenerife para llevaros a la ceremonia y traeros de vuelta. Os daremos los detalles exactos del punto de encuentro y horarios una vez confirmada vuestra asistencia.</p>
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿Habrá barra libre?</button>
+						<button class="faq-question">¿Qué debo llevar a la preboda en Las Teresitas?</button>
 						<div class="faq-answer">
-							<p>¡Por supuesto! Tendremos una barra libre completa con cócteles especiales, vino, cerveza y opciones sin alcohol disponibles durante toda la recepción.</p>
+							<p>Para la preboda en la playa, recomendamos ropa cómoda y casual, protector solar, y quizás una chaqueta ligera para cuando se ponga el sol. Nosotros nos encargaremos de las bebidas y aperitivos.</p>
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿Tenéis lista de regalos?</button>
+						<button class="faq-question">¿Puedo llevar un acompañante?</button>
 						<div class="faq-answer">
-							<p>¡Vuestra presencia es el único regalo que necesitamos! Si queréis contribuir a nuestro futuro juntos, tenemos una pequeña lista de regalos y un fondo para la luna de miel disponible bajo petición.</p>
+							<p>¡Por supuesto! Nos encanta conocer a las personas importantes en vuestras vidas. Solo necesitamos que nos indiques el nombre de tu acompañante en el formulario de confirmación para la organización.</p>
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿Qué pasa si llueve?</button>
+						<button class="faq-question">¿Cómo gestionáis las restricciones alimentarias?</button>
 						<div class="faq-answer">
-							<p>¡No os preocupéis! Finca Salamanca tiene un hermoso pabellón cubierto como plan de respaldo. ¡De cualquier manera, va a ser un día mágico!</p>
+							<p>Trabajamos estrechamente con nuestros proveedores para asegurar que todos puedan disfrutar de la comida. Por favor, especifica cualquier alergia o restricción en el formulario y nos pondremos en contacto contigo para confirmar los detalles.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Qué pasa si no puedo ir a todas las actividades?</button>
+						<div class="faq-answer">
+							<p>¡No hay problema! Todas las actividades son opcionales excepto la ceremonia principal. Puedes elegir solo las que te venga bien. Lo importante es que podamos celebrar juntos en las que puedas asistir.</p>
+						</div>
+					</div>
+					<div class="faq-item">
+						<button class="faq-question">¿Hay aparcamiento en Finca Salamanca?</button>
+						<div class="faq-answer">
+							<p>Sí, Finca Salamanca tiene una zona de aparcamiento amplia para todos los invitados. También tenemos el servicio de guagua disponible si preferís no conducir.</p>
 						</div>
 					</div>
 				</div>
@@ -681,6 +737,27 @@
 				max-height: 2000px;
 				opacity: 1;
 				margin-top: 1rem;
+			}
+
+			.activity-description {
+				background: rgba(212, 175, 55, 0.08);
+				padding: 1.5rem;
+				border-radius: 12px;
+				border-left: 4px solid var(--primary-color);
+				margin-bottom: 1rem;
+			}
+
+			.activity-description h3 {
+				font-family: var(--font-serif);
+				color: var(--primary-color);
+				margin-bottom: 0.8rem;
+				font-size: 1.3rem;
+			}
+
+			.activity-description p {
+				color: var(--text-dark);
+				line-height: 1.5;
+				margin: 0;
 			}
 
 			.rsvp-button {
