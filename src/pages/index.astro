@@ -5,7 +5,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Aida y Javier - Boda</title>
@@ -31,7 +31,22 @@
 		<section id="home" class="hero">
 			<div class="hero-container">
 				<div class="hero-image-side">
-					<img src="/5b3be316-73fc-4168-bad5-e7cee115358a.JPG" alt="Aida y Javier" class="hero-image">
+					<div class="slideshow-container">
+						<img src="/5b3be316-73fc-4168-bad5-e7cee115358a.JPG" alt="Aida y Javier" class="hero-image active">
+						<img src="/ae89d35d-2ed8-4563-9759-fecb50ccd151.JPG" alt="Aida y Javier" class="hero-image">
+						<img src="/753899c3-1e31-414e-81b5-905db152ad5f.JPG" alt="Aida y Javier" class="hero-image">
+						<img src="/0fc0ed37-e841-47ce-aa20-bd6b9e1393a7.JPG" alt="Aida y Javier" class="hero-image">
+						<img src="/09223095-167a-4429-b712-81a5ead5ac48.JPG" alt="Aida y Javier" class="hero-image">
+						
+						<!-- Navigation dots -->
+						<div class="slideshow-dots">
+							<span class="dot active" data-slide="0"></span>
+							<span class="dot" data-slide="1"></span>
+							<span class="dot" data-slide="2"></span>
+							<span class="dot" data-slide="3"></span>
+							<span class="dot" data-slide="4"></span>
+						</div>
+					</div>
 				</div>
 				<div class="hero-content-side">
 					<div class="hero-content">
@@ -122,7 +137,7 @@
 					<!-- Conditional sections that show only when "Yes" is selected -->
 					<div id="attending-yes-questions" class="conditional-section">
 						<div class="form-group">
-							<label for="plus-one-name">Nombre del acompañante (opcional)</label>
+							<label for="plus-one-name">👥 Nombre del acompañante (opcional)</label>
 							<input type="text" id="plus-one-name" name="plus-one-name" placeholder="Si vienes con alguien, escribe su nombre aquí">
 						</div>
 						
@@ -134,11 +149,11 @@
 							<div class="checkbox-group">
 								<label class="checkbox-label">
 									<input type="checkbox" name="events" value="preboda">
-									<span>Preboda en Las Teresitas (14:30)</span>
+									<span>Preboda en Las Teresitas (15 de agosto, 14:30) 🏖️</span>
 								</label>
 								<label class="checkbox-label">
 									<input type="checkbox" name="events" value="ceremonia">
-									<span>Ceremonia en Finca Salamanca (12:30)</span>
+									<span>Ceremonia en Finca Salamanca (16 de agosto, 12:30) 💒</span>
 								</label>
 							</div>
 						</div>
@@ -151,18 +166,18 @@
 							<div class="radio-group">
 								<label class="radio-label">
 									<input type="radio" name="transport" value="yes">
-									<span>Sí, necesito transporte</span>
+									<span>Sí, necesito transporte ✅</span>
 								</label>
 								<label class="radio-label">
 									<input type="radio" name="transport" value="no">
-									<span>No, tengo transporte propio</span>
+									<span>No, tengo transporte propio 🚗</span>
 								</label>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="activity-description">
-								<h3><strong>Restricciones Alimentarias</strong></h3>
+								<h3><strong>🍽️ Restricciones Alimentarias</strong></h3>
 								<p>Queremos asegurarnos de que todos disfrutéis de la comida. Por favor, haznos saber cualquier restricción o alergia:</p>
 							</div>
 							<textarea id="dietary" name="dietary" placeholder="Indica aquí cualquier restricción alimentaria, alergia o preferencia especial"></textarea>
@@ -176,11 +191,11 @@
 							<div class="radio-group">
 								<label class="radio-label">
 									<input type="radio" name="preboda" value="yes">
-									<span>Sí, estaré allí</span>
+									<span>Sí, estaré allí 🏖️</span>
 								</label>
 								<label class="radio-label">
 									<input type="radio" name="preboda" value="no">
-									<span>No podré asistir</span>
+									<span>No podré asistir 😔</span>
 								</label>
 							</div>
 						</div>
@@ -204,7 +219,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="message">Mensaje Especial (Opcional)</label>
+							<label for="message">💌 Mensaje Especial (Opcional)</label>
 							<textarea id="message" name="message" placeholder="¡Comparte tu emoción o buenos deseos!"></textarea>
 						</div>
 					</div>
@@ -246,7 +261,7 @@
 						</div>
 					</div>
 					<div class="faq-item">
-						<button class="faq-question">¿Cómo funciona el transporte en guagua desde Santa Cruz?</button>
+						<button class="faq-question">🚌 ¿Cómo funciona el transporte en guagua desde Santa Cruz?</button>
 						<div class="faq-answer">
 							<p>Hemos organizado una guagua (autobús) que saldrá desde Santa Cruz de Tenerife para llevaros a la ceremonia y traeros de vuelta. Os daremos los detalles exactos del punto de encuentro y horarios una vez confirmada vuestra asistencia.</p>
 						</div>
@@ -272,7 +287,7 @@
 					<div class="faq-item">
 						<button class="faq-question">¿Qué pasa si no puedo ir a todas las actividades?</button>
 						<div class="faq-answer">
-							<p>¡No hay problema! Todas las actividades son opcionales excepto la ceremonia principal. Puedes elegir solo las que te venga bien. Lo importante es que podamos celebrar juntos en las que puedas asistir.</p>
+							<p>¡No hay problema! Todas las actividades son opcionales excepto la ceremonia principal. Puedes elegir solo las que te vengan bien. Lo importante es que podamos celebrar juntos en las que puedas asistir.</p>
 						</div>
 					</div>
 					<div class="faq-item">
@@ -400,11 +415,58 @@
 				position: relative;
 			}
 
+			.slideshow-container {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				overflow: hidden;
+			}
+
 			.hero-image {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 				object-position: center;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 1s ease-in-out;
+			}
+
+			.hero-image.active {
+				opacity: 1;
+			}
+
+			.slideshow-dots {
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				gap: 10px;
+				z-index: 10;
+			}
+
+			.dot {
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.5);
+				cursor: pointer;
+				transition: all 0.3s ease;
+				border: 2px solid rgba(255, 255, 255, 0.8);
+			}
+
+			.dot.active {
+				background: var(--primary-color);
+				border-color: var(--white);
+				transform: scale(1.2);
+			}
+
+			.dot:hover {
+				background: rgba(255, 255, 255, 0.8);
+				transform: scale(1.1);
 			}
 
 			.hero-content-side {
@@ -940,6 +1002,77 @@
 		<script>
 			// Funcionalidad de FAQ
 			document.addEventListener('DOMContentLoaded', function() {
+				// Hero Slideshow Functionality
+				const heroImages = document.querySelectorAll('.hero-image');
+				const dots = document.querySelectorAll('.dot');
+				let currentSlide = 0;
+				let slideInterval;
+				let isHovered = false;
+
+				function showSlide(index) {
+					// Remove active class from all images and dots
+					heroImages.forEach(img => img.classList.remove('active'));
+					dots.forEach(dot => dot.classList.remove('active'));
+					
+					// Add active class to current image and dot
+					if (heroImages[index] && dots[index]) {
+						heroImages[index].classList.add('active');
+						dots[index].classList.add('active');
+						currentSlide = index;
+					}
+				}
+
+				function nextSlide() {
+					if (!isHovered) {
+						const next = (currentSlide + 1) % heroImages.length;
+						showSlide(next);
+					}
+				}
+
+				function startSlideshow() {
+					// Clear any existing interval first
+					if (slideInterval) {
+						clearInterval(slideInterval);
+					}
+					// Start new interval
+					slideInterval = setInterval(nextSlide, 5000); // 5 seconds for more relaxed timing
+				}
+
+				function stopSlideshow() {
+					if (slideInterval) {
+						clearInterval(slideInterval);
+						slideInterval = null;
+					}
+				}
+
+				// Add click event listeners to dots
+				dots.forEach((dot, index) => {
+					dot.addEventListener('click', () => {
+						showSlide(index);
+						// Only restart if not hovered
+						if (!isHovered) {
+							startSlideshow();
+						}
+					});
+				});
+
+				// Pause slideshow on hover
+				const slideshowContainer = document.querySelector('.slideshow-container');
+				if (slideshowContainer) {
+					slideshowContainer.addEventListener('mouseenter', () => {
+						isHovered = true;
+						stopSlideshow();
+					});
+					
+					slideshowContainer.addEventListener('mouseleave', () => {
+						isHovered = false;
+						startSlideshow();
+					});
+				}
+
+				// Start the slideshow after a short delay
+				setTimeout(startSlideshow, 1000);
+
 				const faqItems = document.querySelectorAll('.faq-item');
 				
 				faqItems.forEach(item => {
