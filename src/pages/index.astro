@@ -476,7 +476,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 				text-align: center;
 				position: relative;
 				overflow: hidden;
-				background: linear-gradient(135deg, var(--accent-color) 0%, #f0ebe5 100%);
+				background: var(--accent-color);
 			}
 
 			.hero-container {
@@ -556,7 +556,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 				align-items: center;
 				justify-content: center;
 				text-align: center;
-				background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(247, 243, 240, 0.2) 100%);
+				background: var(--accent-color);
 				backdrop-filter: blur(5px);
 			}
 
@@ -706,7 +706,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			/* Sección de Detalles */
 			.details {
 				padding: 6rem 0;
-				background: linear-gradient(135deg, var(--accent-color) 0%, #f0ebe5 100%);
+				background: var(--accent-color);
 				position: relative;
 				overflow: hidden;
 			}
@@ -718,7 +718,6 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background-image: url('/lemon.png');
 				opacity: 0.05;
 				pointer-events: none;
 			}
@@ -891,7 +890,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			}
 
 			.detail-item {
-				background: var(--accent-color);
+				background: rgba(255, 255, 255, 0.2);
 				padding: 0.5rem 1rem;
 				border-radius: 20px;
 				font-size: 0.9rem;
@@ -901,7 +900,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			.activity-note {
 				margin-top: 1rem;
 				padding: 0.8rem;
-				background: rgba(212, 175, 55, 0.1);
+				background: rgba(255, 255, 255, 0.2);
 				border-radius: 8px;
 				font-size: 0.9rem;
 				color: var(--text-dark);
@@ -989,7 +988,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			/* Sección RSVP */
 			.rsvp {
 				padding: 6rem 0;
-				background: linear-gradient(135deg, #f8f5f2 0%, var(--accent-color) 100%);
+				background: var(--accent-color);
 			}
 
 			.rsvp-text {
@@ -1059,7 +1058,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			}
 
 			.radio-label:hover {
-				background-color: var(--accent-color);
+				background-color: rgba(255, 255, 255, 0.2);
 			}
 
 			.radio-label input[type="radio"] {
@@ -1083,7 +1082,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			}
 
 			.checkbox-label:hover {
-				background-color: var(--accent-color);
+				background-color: rgba(255, 255, 255, 0.2);
 			}
 
 			.checkbox-label input[type="checkbox"] {
@@ -1348,6 +1347,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			.already-submitted {
 				text-align: center;
 				padding: 2rem;
+				background: var(--white);
 				border-radius: 12px;
 				margin-bottom: 2rem;
 				position: relative;
