@@ -20,6 +20,71 @@ const POST = async ({ request }) => {
         }
       );
     }
+    if (data.attending === "no") {
+      const response2 = await fetch("https://script.google.com/macros/s/AKfycbzKme6BAhlj16ZV22zmWLyHle3c2S91GEpEVaIM3qJ5d0MgJCiIzmwnAUX_5k_DiHNU/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          attending: data.attending,
+          "no-message": data["no-message"] || ""
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      if (!response2.ok) {
+        throw new Error("Failed to submit to Google Sheets");
+      }
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: "RSVP submitted successfully"
+        }),
+        {
+          status: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type"
+          }
+        }
+      );
+    }
+    if (data.attending === "yes") {
+      if (!data["plus-one"] || !data.transport) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: "Please answer all required questions"
+          }),
+          {
+            status: 400,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "POST, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type"
+            }
+          }
+        );
+      }
+      if (data["plus-one"] === "yes" && !data["plus-one-name"]) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: "Please provide your plus one's name"
+          }),
+          {
+            status: 400,
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "POST, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type"
+            }
+          }
+        );
+      }
+    }
     if (false) ;
     console.log("Sending data to Google Sheets:", {
       url: "https://script.google.com/macros/s/AKfycbzKme6BAhlj16ZV22zmWLyHle3c2S91GEpEVaIM3qJ5d0MgJCiIzmwnAUX_5k_DiHNU/exec",

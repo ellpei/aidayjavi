@@ -234,134 +234,146 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 				<h2 class="section-title">RSVP</h2>
 				<p class="rsvp-text">¡Estamos deseando celebrar con vosotros! Por favor, confirma tu asistencia antes del 1 de julio de 2025.</p>
 				<form class="rsvp-form" id="rsvpForm">
-					<div class="form-group">
-						<label for="name">Nombre Completo *</label>
-						<input type="text" id="name" name="name" required>
+					<div id="already-submitted" class="already-submitted" style="display: none;">
+						<div class="decoration-image">
+							<img src="/lemon-strelitzia.png" alt="Lemon and Strelitzia" class="decoration">
+						</div>
+						<h3>¡Gracias por tu confirmación!</h3>
+						<p>Ya has enviado tu respuesta. Si necesitas hacer algún cambio, por favor contáctanos en <a href="mailto:aidayjaviboda@gmail.com">aidayjaviboda@gmail.com</a></p>
 					</div>
-					<div class="form-group">
-						<label for="email">Correo Electrónico *</label>
-						<input type="email" id="email" name="email" required>
+					<div id="form-content">
+						<div class="form-group">
+							<label for="name">Nombre Completo *</label>
+							<input type="text" id="name" name="name" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Correo Electrónico *</label>
+							<input type="email" id="email" name="email" required>
+						</div>
+						<div class="form-group">
+							<label for="attending">¿Vas a venir a la boda? Nos hace mucha ilusión compartir este día con vosotros *</label>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="attending" value="yes" id="attending-yes" required>
+									<span>¡Sí, estaré allí! 🎉</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="attending" value="no" id="attending-no" required>
+									<span>Lo siento, no podré asistir 😔</span>
+								</label>
+							</div>
+						</div>
+
+						<!-- Conditional sections that show only when "Yes" is selected -->
+						<div id="attending-yes-questions" class="conditional-section">
+							<div class="form-group">
+								<label for="plus-one">¿Vienes con acompañante? *</label>
+								<div class="radio-group">
+									<label class="radio-label">
+										<input type="radio" name="plus-one" value="yes">
+										<span>Sí, vendré con alguien</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="plus-one" value="no">
+										<span>No, vendré solo/a</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group" id="plus-one-name-group">
+								<label for="plus-one-name">Indica nombre del acompañante *</label>
+								<input type="text" id="plus-one-name" name="plus-one-name">
+							</div>
+
+							<div class="form-group">
+								<label for="transport">¿Vas a usar la guagua para ir y volver de la Boda? *</label>
+								<div class="radio-group">
+									<label class="radio-label">
+										<input type="radio" name="transport" value="yes">
+										<span>Sí, usaré la guagua</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="transport" value="no">
+										<span>No, iré por mi cuenta</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="dietary">¿Tienes alguna alergia o intolerancia alimentaria? Indicalas</label>
+								<textarea id="dietary" name="dietary" placeholder="Escribe aquí tus alergias o intolerancias, si las tienes"></textarea>
+							</div>
+
+							<div class="form-group">
+								<label for="teide-activity">¿Quieres hacer la actividad de ascensión al Teide en la madrugada del Jueves 14? *</label>
+								<div class="radio-group">
+									<label class="radio-label">
+										<input type="radio" name="teide-activity" value="yes">
+										<span>Sí, me apunto al reto</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="teide-activity" value="no">
+										<span>No</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="guided-tour">¿Quieres realizar la ruta guiada por el Parque Nacional durante la mañana del Jueves 14? *</label>
+								<div class="radio-group">
+									<label class="radio-label">
+										<input type="radio" name="guided-tour" value="yes">
+										<span>Sí, me apunto a la ruta guiada</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="guided-tour" value="no">
+										<span>No</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="guachinche">¿Te apuntas a una buena comilona en un Guachinche Canario el Jueves 14? *</label>
+								<div class="radio-group">
+									<label class="radio-label">
+										<input type="radio" name="guachinche" value="yes">
+										<span>¡Sí, me apunto a comer!</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="guachinche" value="no">
+										<span>No podré asistir</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="preboda">¿Vas a venir a la Preboda del Viernes por la tarde en la playa? *</label>
+								<div class="radio-group">
+									<label class="radio-label">
+										<input type="radio" name="preboda" value="yes">
+										<span>¡Sí, estaré allí!</span>
+									</label>
+									<label class="radio-label">
+										<input type="radio" name="preboda" value="no">
+										<span>No podré asistir</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- Message for those who can't attend -->
+						<div id="attending-no-questions" class="conditional-section">
+							<div class="form-group">
+								<label for="no-message">Nos da mucha pena que no puedas acompañarnos. ¿Quieres dejarnos un mensaje?</label>
+								<textarea id="no-message" name="no-message" placeholder="Sabemos que estarás con nosotros en espíritu ❤️"></textarea>
+							</div>
+						</div>
+
+						<button type="submit" class="rsvp-button">
+							<span class="button-text">Enviar Confirmación</span>
+							<div class="loading-spinner"></div>
+						</button>
 					</div>
-					<div class="form-group">
-						<label for="attending">¿Vas a venir a la boda? Nos hace mucha ilusión compartir este día con vosotros *</label>
-						<div class="radio-group">
-							<label class="radio-label">
-								<input type="radio" name="attending" value="yes" id="attending-yes" required>
-								<span>¡Sí, estaré allí! 🎉</span>
-							</label>
-							<label class="radio-label">
-								<input type="radio" name="attending" value="no" id="attending-no" required>
-								<span>Lo siento, no podré asistir 😔</span>
-							</label>
-						</div>
-					</div>
-
-					<!-- Conditional sections that show only when "Yes" is selected -->
-					<div id="attending-yes-questions" class="conditional-section">
-						<div class="form-group">
-							<label for="plus-one">¿Vienes con acompañante? *</label>
-							<div class="radio-group">
-								<label class="radio-label">
-									<input type="radio" name="plus-one" value="yes" required>
-									<span>Sí, vendré con alguien</span>
-								</label>
-								<label class="radio-label">
-									<input type="radio" name="plus-one" value="no" required>
-									<span>No, vendré solo/a</span>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group" id="plus-one-name-group">
-							<label for="plus-one-name">Indica nombre del acompañante *</label>
-							<input type="text" id="plus-one-name" name="plus-one-name" required>
-						</div>
-
-						<div class="form-group">
-							<label for="transport">¿Vas a usar la guagua para ir y volver de la Boda? *</label>
-							<div class="radio-group">
-								<label class="radio-label">
-									<input type="radio" name="transport" value="yes" required>
-									<span>Sí, usaré la guagua</span>
-								</label>
-								<label class="radio-label">
-									<input type="radio" name="transport" value="no" required>
-									<span>No, iré por mi cuenta</span>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="dietary">¿Tienes alguna alergia o intolerancia alimentaria? Indicalas</label>
-							<textarea id="dietary" name="dietary" placeholder="Escribe aquí tus alergias o intolerancias, si las tienes"></textarea>
-						</div>
-
-						<div class="form-group">
-							<label for="teide-activity">¿Quieres hacer la actividad de ascensión al Teide en la madrugada del Jueves 14? *</label>
-							<div class="radio-group">
-								<label class="radio-label">
-									<input type="radio" name="teide-activity" value="yes" required>
-									<span>Sí, me apunto al reto</span>
-								</label>
-								<label class="radio-label">
-									<input type="radio" name="teide-activity" value="no" required>
-									<span>No</span>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="guided-tour">¿Quieres realizar la ruta guiada por el Parque Nacional durante la mañana del Jueves 14? *</label>
-							<div class="radio-group">
-								<label class="radio-label">
-									<input type="radio" name="guided-tour" value="yes" required>
-									<span>Sí, me apunto a la ruta guiada</span>
-								</label>
-								<label class="radio-label">
-									<input type="radio" name="guided-tour" value="no" required>
-									<span>No</span>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="guachinche">¿Te apuntas a una buena comilona en un Guachinche Canario el Jueves 14? *</label>
-							<div class="radio-group">
-								<label class="radio-label">
-									<input type="radio" name="guachinche" value="yes" required>
-									<span>¡Sí, me apunto a comer!</span>
-								</label>
-								<label class="radio-label">
-									<input type="radio" name="guachinche" value="no" required>
-									<span>No podré asistir</span>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="preboda">¿Vas a venir a la Preboda del Viernes por la tarde en la playa? *</label>
-							<div class="radio-group">
-								<label class="radio-label">
-									<input type="radio" name="preboda" value="yes" required>
-									<span>¡Sí, estaré allí!</span>
-								</label>
-								<label class="radio-label">
-									<input type="radio" name="preboda" value="no" required>
-									<span>No podré asistir</span>
-								</label>
-							</div>
-						</div>
-					</div>
-
-					<!-- Message for those who can't attend -->
-					<div id="attending-no-questions" class="conditional-section">
-						<div class="form-group">
-							<label for="no-message">Nos da mucha pena que no puedas acompañarnos. ¿Quieres dejarnos un mensaje?</label>
-							<textarea id="no-message" name="no-message" placeholder="Sabemos que estarás con nosotros en espíritu ❤️"></textarea>
-						</div>
-					</div>
-
-					<button type="submit" class="rsvp-button">Enviar Confirmación</button>
 				</form>
 			</div>
 		</section>
@@ -1114,6 +1126,7 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 			}
 
 			.rsvp-button {
+				position: relative;
 				width: 100%;
 				background: var(--primary-color);
 				color: var(--white);
@@ -1123,12 +1136,43 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 				font-weight: 600;
 				border-radius: 8px;
 				cursor: pointer;
-				transition: background-color 0.3s ease;
+				transition: all 0.3s ease;
 				margin-top: 1rem;
 			}
 
-			.rsvp-button:hover {
+			.rsvp-button:hover:not(:disabled) {
 				background: var(--secondary-color);
+			}
+
+			.rsvp-button:disabled {
+				background: #ccc;
+				cursor: not-allowed;
+			}
+
+			.loading-spinner {
+				display: none;
+				width: 20px;
+				height: 20px;
+				border: 3px solid rgba(255, 255, 255, 0.3);
+				border-radius: 50%;
+				border-top-color: var(--white);
+				animation: spin 1s ease-in-out infinite;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			@keyframes spin {
+				to { transform: translate(-50%, -50%) rotate(360deg); }
+			}
+
+			.rsvp-button.loading .button-text {
+				visibility: hidden;
+			}
+
+			.rsvp-button.loading .loading-spinner {
+				display: block;
 			}
 
 			/* Footer */
@@ -1300,6 +1344,47 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 					padding: 1rem 0;
 				}
 			}
+
+			.already-submitted {
+				text-align: center;
+				padding: 2rem;
+				border-radius: 12px;
+				margin-bottom: 2rem;
+				position: relative;
+			}
+
+			.already-submitted .decoration-image {
+				margin-bottom: 1.5rem;
+			}
+
+			.already-submitted .decoration {
+				width: 60px;
+				height: 60px;
+				object-fit: contain;
+				opacity: 0.8;
+			}
+
+			.already-submitted h3 {
+				color: var(--primary-color);
+				font-family: var(--font-serif);
+				font-size: 1.8rem;
+				margin-bottom: 1rem;
+			}
+
+			.already-submitted p {
+				color: var(--text-dark);
+				line-height: 1.6;
+			}
+
+			.already-submitted a {
+				color: var(--primary-color);
+				text-decoration: none;
+				font-weight: 500;
+			}
+
+			.already-submitted a:hover {
+				text-decoration: underline;
+			}
 		</style>
 
 		<script>
@@ -1398,10 +1483,26 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 				attendingYes.addEventListener('change', showConditionalSections);
 				attendingNo.addEventListener('change', showConditionalSections);
 
+				// Check if form was already submitted
+				const hasSubmitted = document.cookie.split(';').some(c => c.trim().startsWith('rsvp_submitted='));
+				const formContent = document.getElementById('form-content');
+				const alreadySubmitted = document.getElementById('already-submitted');
+
+				if (hasSubmitted) {
+					formContent.style.display = 'none';
+					alreadySubmitted.style.display = 'block';
+				}
+
 				// Envío del formulario RSVP
 				const rsvpForm = document.getElementById('rsvpForm');
+				const submitButton = rsvpForm.querySelector('.rsvp-button');
+				
 				rsvpForm.addEventListener('submit', async function(e) {
 					e.preventDefault();
+					
+					// Disable button and show loading state
+					submitButton.disabled = true;
+					submitButton.classList.add('loading');
 					
 					// Obtener datos del formulario
 					const formData = new FormData(rsvpForm);
@@ -1410,7 +1511,28 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 					// Validación básica
 					if (!data.name || !data.email || !data.attending) {
 						alert('Por favor, completa todos los campos obligatorios.');
+						submitButton.disabled = false;
+						submitButton.classList.remove('loading');
 						return;
+					}
+
+					// Validación adicional solo si está asistiendo
+					if (data.attending === 'yes') {
+						if (!data['plus-one'] || !data.transport || !data['teide-activity'] || 
+							!data['guided-tour'] || !data.guachinche || !data.preboda) {
+							alert('Por favor, responde todas las preguntas obligatorias.');
+							submitButton.disabled = false;
+							submitButton.classList.remove('loading');
+							return;
+						}
+
+						// Validar nombre del acompañante si es necesario
+						if (data['plus-one'] === 'yes' && !data['plus-one-name']) {
+							alert('Por favor, indica el nombre de tu acompañante.');
+							submitButton.disabled = false;
+							submitButton.classList.remove('loading');
+							return;
+						}
 					}
 
 					try {
@@ -1428,6 +1550,11 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 						if (!response.ok) {
 							throw new Error(result.error || 'Error al enviar los datos');
 						}
+
+						// Set cookie to remember submission
+						const expirationDate = new Date();
+						expirationDate.setFullYear(expirationDate.getFullYear() + 1); // Cookie expires in 1 year
+						document.cookie = `rsvp_submitted=true; expires=${expirationDate.toUTCString()}; path=/`;
 
 						// Mostrar mensaje de éxito
 						let message = '¡Gracias por tu confirmación! ';
@@ -1447,9 +1574,17 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 						// Reset conditional sections
 						yesQuestions.classList.remove('show');
 						noQuestions.classList.remove('show');
+
+						// Show already submitted message
+						formContent.style.display = 'none';
+						alreadySubmitted.style.display = 'block';
 					} catch (error) {
 						console.error('Error:', error);
 						alert('Lo siento, ha ocurrido un error al enviar tu confirmación. Por favor, inténtalo de nuevo más tarde.');
+					} finally {
+						// Re-enable button and remove loading state
+						submitButton.disabled = false;
+						submitButton.classList.remove('loading');
 					}
 				});
 
