@@ -1,5 +1,6 @@
 ---
 // Página principal de la boda de Aida y Javier
+const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 ---
 
 <html lang="es">
@@ -258,90 +259,97 @@
 					<!-- Conditional sections that show only when "Yes" is selected -->
 					<div id="attending-yes-questions" class="conditional-section">
 						<div class="form-group">
-							<label for="plus-one-name">👥 Nombre del acompañante (opcional)</label>
-							<input type="text" id="plus-one-name" name="plus-one-name" placeholder="Si vienes con alguien, escribe su nombre aquí">
-						</div>
-						
-						<div class="form-group">
-							<div class="activity-description">
-								<h3><strong>Eventos de la Boda</strong></h3>
-								<p>Tenemos dos celebraciones especiales preparadas para vosotros. Por favor, indica a cuáles vas a asistir:</p>
-							</div>
-							<div class="checkbox-group">
-								<label class="checkbox-label">
-									<input type="checkbox" name="events" value="preboda">
-									<span>Preboda en Las Teresitas (15 de agosto, 14:30) 🏖️</span>
-								</label>
-								<label class="checkbox-label">
-									<input type="checkbox" name="events" value="ceremonia">
-									<span>Ceremonia en Finca Salamanca (16 de agosto, 12:30) 💒</span>
-								</label>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="activity-description">
-								<h3><strong>Transporte - Guagua desde Santa Cruz</strong></h3>
-								<p>Hemos organizado transporte en guagua desde Santa Cruz de Tenerife para facilitar vuestro desplazamiento a la boda:</p>
-							</div>
+							<label for="plus-one">¿Vienes con acompañante? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="transport" value="yes">
-									<span>Sí, necesito transporte ✅</span>
+									<input type="radio" name="plus-one" value="yes" required>
+									<span>Sí, vendré con alguien</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="transport" value="no">
-									<span>No, tengo transporte propio 🚗</span>
+									<input type="radio" name="plus-one" value="no" required>
+									<span>No, vendré solo/a</span>
 								</label>
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="activity-description">
-								<h3><strong>🍽️ Restricciones Alimentarias</strong></h3>
-								<p>Queremos asegurarnos de que todos disfrutéis de la comida. Por favor, haznos saber cualquier restricción o alergia:</p>
-							</div>
-							<textarea id="dietary" name="dietary" placeholder="Indica aquí cualquier restricción alimentaria, alergia o preferencia especial"></textarea>
+						<div class="form-group" id="plus-one-name-group">
+							<label for="plus-one-name">Indica nombre del acompañante *</label>
+							<input type="text" id="plus-one-name" name="plus-one-name" required>
 						</div>
 
 						<div class="form-group">
-							<div class="activity-description">
-								<h3><strong>Preboda del Viernes - Las Teresitas</strong></h3>
-								<p>Queremos empezar la celebración el viernes por la tarde con una preboda especial en la playa de Las Teresitas, donde pasaremos un rato muy divertido mientras atardece:</p>
-							</div>
+							<label for="transport">¿Vas a usar la guagua para ir y volver de la Boda? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="preboda" value="yes">
-									<span>Sí, estaré allí 🏖️</span>
+									<input type="radio" name="transport" value="yes" required>
+									<span>Sí, usaré la guagua</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="preboda" value="no">
-									<span>No podré asistir 😔</span>
+									<input type="radio" name="transport" value="no" required>
+									<span>No, iré por mi cuenta</span>
 								</label>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<div class="activity-description">
-								<h3><strong>Actividades del Jueves 14 de agosto</strong></h3>
-								<p>Como ya os dijimos, nos hace mucha ilusión enseñaros nuestro paraíso. Hemos organizado dos actividades especiales para que podáis conocer la belleza de Tenerife:</p>
-							</div>
-							<br/>
-							<div class="checkbox-group">
-								<label class="checkbox-label">
-									<input type="checkbox" name="teide-activity" value="yes">
-									<span>¿Vas a venir a la actividad del Parque Nacional del Teide el Jueves por la mañana?</span>
+							<label for="dietary">¿Tienes alguna alergia o intolerancia alimentaria? Indicalas</label>
+							<textarea id="dietary" name="dietary" placeholder="Escribe aquí tus alergias o intolerancias, si las tienes"></textarea>
+						</div>
+
+						<div class="form-group">
+							<label for="teide-activity">¿Quieres hacer la actividad de ascensión al Teide en la madrugada del Jueves 14? *</label>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="teide-activity" value="yes" required>
+									<span>Sí, me apunto al reto</span>
 								</label>
-								<label class="checkbox-label">
-									<input type="checkbox" name="guachinche" value="yes">
-									<span>¿Vas a venir a la comida en un Guachinche el Jueves 14 de agosto?</span>
+								<label class="radio-label">
+									<input type="radio" name="teide-activity" value="no" required>
+									<span>No</span>
 								</label>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="message">💌 Mensaje Especial (Opcional)</label>
-							<textarea id="message" name="message" placeholder="¡Comparte tu emoción o buenos deseos!"></textarea>
+							<label for="guided-tour">¿Quieres realizar la ruta guiada por el Parque Nacional durante la mañana del Jueves 14? *</label>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="guided-tour" value="yes" required>
+									<span>Sí, me apunto a la ruta guiada</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="guided-tour" value="no" required>
+									<span>No</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="guachinche">¿Te apuntas a una buena comilona en un Guachinche Canario el Jueves 14? *</label>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="guachinche" value="yes" required>
+									<span>¡Sí, me apunto a comer!</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="guachinche" value="no" required>
+									<span>No podré asistir</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="preboda">¿Vas a venir a la Preboda del Viernes por la tarde en la playa? *</label>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="preboda" value="yes" required>
+									<span>¡Sí, estaré allí!</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="preboda" value="no" required>
+									<span>No podré asistir</span>
+								</label>
+							</div>
 						</div>
 					</div>
 
@@ -698,7 +706,7 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				background-image: url('/lemon-pattern.png');
+				background-image: url('/lemon.png');
 				opacity: 0.05;
 				pointer-events: none;
 			}
@@ -840,6 +848,10 @@
 				overflow: hidden;
 				transition: all 0.3s ease-out;
 				margin-bottom: 0.5rem;
+			}
+
+			#plus-one-name-group {
+				display: none;
 			}
 
 			.activity-content p.expandable.expanded {
@@ -1388,7 +1400,7 @@
 
 				// Envío del formulario RSVP
 				const rsvpForm = document.getElementById('rsvpForm');
-				rsvpForm.addEventListener('submit', function(e) {
+				rsvpForm.addEventListener('submit', async function(e) {
 					e.preventDefault();
 					
 					// Obtener datos del formulario
@@ -1401,34 +1413,44 @@
 						return;
 					}
 
-					// Validación condicional para asistentes
-					if (data.attending === 'yes') {
-						// Check if at least one event is selected
-						const events = formData.getAll('events');
-						if (events.length === 0) {
-							alert('Por favor, selecciona al menos un evento al que vas a asistir.');
-							return;
+					try {
+						// Enviar datos a nuestro endpoint
+						const response = await fetch('/api/submit-rsvp', {
+							method: 'POST',
+							body: JSON.stringify(data),
+							headers: {
+								'Content-Type': 'application/json',
+							},
+						});
+
+						const result = await response.json();
+
+						if (!response.ok) {
+							throw new Error(result.error || 'Error al enviar los datos');
 						}
-					}
-					
-					// En una aplicación real, enviarías estos datos a un servidor
-					let message = '¡Gracias por tu confirmación! ';
-					if (data.attending === 'yes') {
-						message += 'Estamos emocionados de celebrar contigo';
-						if (data['plus-one-name']) {
-							message += ` y con ${data['plus-one-name']}`;
+
+						// Mostrar mensaje de éxito
+						let message = '¡Gracias por tu confirmación! ';
+						if (data.attending === 'yes') {
+							message += 'Estamos emocionados de celebrar contigo';
+							if (data['plus-one-name']) {
+								message += ` y con ${data['plus-one-name']}`;
+							}
+							message += '. ';
+						} else {
+							message += 'Sentimos que no puedas acompañarnos, pero sabemos que estarás con nosotros en espíritu. ';
 						}
-						message += '. ';
-					} else {
-						message += 'Sentimos que no puedas acompañarnos, pero sabemos que estarás con nosotros en espíritu. ';
+						message += 'Nos pondremos en contacto pronto.';
+						
+						alert(message);
+						rsvpForm.reset();
+						// Reset conditional sections
+						yesQuestions.classList.remove('show');
+						noQuestions.classList.remove('show');
+					} catch (error) {
+						console.error('Error:', error);
+						alert('Lo siento, ha ocurrido un error al enviar tu confirmación. Por favor, inténtalo de nuevo más tarde.');
 					}
-					message += 'Nos pondremos en contacto pronto.';
-					
-					alert(message);
-					rsvpForm.reset();
-					// Reset conditional sections
-					yesQuestions.classList.remove('show');
-					noQuestions.classList.remove('show');
 				});
 
 				// Desplazamiento suave para enlaces de navegación
@@ -1458,6 +1480,18 @@
 						this.textContent = text.classList.contains('expanded') ? 'Leer menos' : 'Leer más';
 					});
 				});
+
+				// Plus one name field visibility
+				const plusOneYes = document.querySelector('input[name="plus-one"][value="yes"]');
+				const plusOneNo = document.querySelector('input[name="plus-one"][value="no"]');
+				const plusOneNameGroup = document.getElementById('plus-one-name-group');
+
+				function togglePlusOneName() {
+					plusOneNameGroup.style.display = plusOneYes.checked ? 'block' : 'none';
+				}
+
+				plusOneYes.addEventListener('change', togglePlusOneName);
+				plusOneNo.addEventListener('change', togglePlusOneName);
 			});
 		</script>
 	</body>
