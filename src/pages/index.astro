@@ -22,7 +22,6 @@
 					<li><a href="#home">Inicio</a></li>
 					<li><a href="#details">Detalles</a></li>
 					<li><a href="#rsvp">Confirmar</a></li>
-					<li><a href="#faq">FAQ</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -234,69 +233,6 @@
 
 					<button type="submit" class="rsvp-button">Enviar Confirmación</button>
 				</form>
-			</div>
-		</section>
-
-		<!-- Sección FAQ -->
-		<section id="faq" class="faq">
-			<div class="container">
-				<h2 class="section-title">Preguntas Frecuentes</h2>
-				<div class="faq-list">
-					<div class="faq-item">
-						<button class="faq-question">¿Qué es la diferencia entre la preboda y la ceremonia?</button>
-						<div class="faq-answer">
-							<p>La <strong>ceremonia</strong> es el evento principal el sábado a las 12:30 en Finca Salamanca. La <strong>preboda del viernes</strong> es una celebración más relajada en la playa de Las Teresitas por la tarde, donde podremos conocernos mejor y disfrutar del atardecer juntos.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Qué incluye la excursión al Teide el jueves?</button>
-						<div class="faq-answer">
-							<p>La excursión al Parque Nacional del Teide es una actividad relajada y accesible para todos. Visitaremos los paisajes volcánicos más impresionantes de Tenerife. No requiere ningún nivel físico especial, solo ganas de disfrutar de nuestro paraíso natural.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Qué es un Guachinche?</button>
-						<div class="faq-answer">
-							<p>Un Guachinche es un restaurante tradicional canario, generalmente familiar, donde se sirve comida casera auténtica y vino local. Es la mejor manera de experimentar la verdadera gastronomía canaria en un ambiente acogedor y tradicional.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">🚌 ¿Cómo funciona el transporte en guagua desde Santa Cruz?</button>
-						<div class="faq-answer">
-							<p>Hemos organizado una guagua (autobús) que saldrá desde Santa Cruz de Tenerife para llevaros a la ceremonia y traeros de vuelta. Os daremos los detalles exactos del punto de encuentro y horarios una vez confirmada vuestra asistencia.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Qué debo llevar a la preboda en Las Teresitas?</button>
-						<div class="faq-answer">
-							<p>Para la preboda en la playa, recomendamos ropa cómoda y casual, protector solar, y quizás una chaqueta ligera para cuando se ponga el sol. Nosotros nos encargaremos de las bebidas y aperitivos.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Puedo llevar un acompañante?</button>
-						<div class="faq-answer">
-							<p>¡Por supuesto! Nos encanta conocer a las personas importantes en vuestras vidas. Solo necesitamos que nos indiques el nombre de tu acompañante en el formulario de confirmación para la organización.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Cómo gestionáis las restricciones alimentarias?</button>
-						<div class="faq-answer">
-							<p>Trabajamos estrechamente con nuestros proveedores para asegurar que todos puedan disfrutar de la comida. Por favor, especifica cualquier alergia o restricción en el formulario y nos pondremos en contacto contigo para confirmar los detalles.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Qué pasa si no puedo ir a todas las actividades?</button>
-						<div class="faq-answer">
-							<p>¡No hay problema! Todas las actividades son opcionales excepto la ceremonia principal. Puedes elegir solo las que te vengan bien. Lo importante es que podamos celebrar juntos en las que puedas asistir.</p>
-						</div>
-					</div>
-					<div class="faq-item">
-						<button class="faq-question">¿Hay aparcamiento en Finca Salamanca?</button>
-						<div class="faq-answer">
-							<p>Sí, Finca Salamanca tiene una zona de aparcamiento amplia para todos los invitados. También tenemos el servicio de guagua disponible si preferís no conducir.</p>
-						</div>
-					</div>
-				</div>
 			</div>
 		</section>
 
@@ -840,52 +776,6 @@
 				background: var(--secondary-color);
 			}
 
-			/* Sección FAQ */
-			.faq {
-				padding: 6rem 0;
-				background: var(--white);
-			}
-
-			.faq-list {
-				max-width: 800px;
-				margin: 0 auto;
-			}
-
-			.faq-item {
-				margin-bottom: 1rem;
-				border: 1px solid #e0e0e0;
-				border-radius: 8px;
-				overflow: hidden;
-			}
-
-			.faq-question {
-				width: 100%;
-				padding: 1.5rem;
-				background: var(--accent-color);
-				border: none;
-				text-align: left;
-				font-size: 1.1rem;
-				font-weight: 500;
-				cursor: pointer;
-				transition: background-color 0.3s ease;
-			}
-
-			.faq-question:hover {
-				background: #f0ebe5;
-			}
-
-			.faq-answer {
-				padding: 0 1.5rem;
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.3s ease, padding 0.3s ease;
-			}
-
-			.faq-item.active .faq-answer {
-				padding: 1.5rem;
-				max-height: 200px;
-			}
-
 			/* Footer */
 			.footer {
 				background: var(--text-dark);
@@ -1000,7 +890,6 @@
 		</style>
 
 		<script>
-			// Funcionalidad de FAQ
 			document.addEventListener('DOMContentLoaded', function() {
 				// Hero Slideshow Functionality
 				const heroImages = document.querySelectorAll('.hero-image');
@@ -1072,26 +961,6 @@
 
 				// Start the slideshow after a short delay
 				setTimeout(startSlideshow, 1000);
-
-				const faqItems = document.querySelectorAll('.faq-item');
-				
-				faqItems.forEach(item => {
-					const question = item.querySelector('.faq-question');
-					
-					question.addEventListener('click', () => {
-						const isActive = item.classList.contains('active');
-						
-						// Cerrar todos los otros elementos FAQ
-						faqItems.forEach(otherItem => {
-							otherItem.classList.remove('active');
-						});
-						
-						// Alternar elemento actual
-						if (!isActive) {
-							item.classList.add('active');
-						}
-					});
-				});
 
 				// Funcionalidad del formulario condicional
 				const attendingYes = document.getElementById('attending-yes');
