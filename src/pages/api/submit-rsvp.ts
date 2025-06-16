@@ -24,6 +24,80 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // If not attending, we don't need to validate other fields
+    if (data.attending === 'no') {
+      // Send to Google Sheets with just the basic info
+      const response = await fetch(import.meta.env.GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          attending: data.attending,
+          'no-message': data['no-message'] || ''
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit to Google Sheets');
+      }
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: 'RSVP submitted successfully'
+        }),
+        { 
+          status: 200,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+          }
+        }
+      );
+    }
+
+    // For those attending, validate additional required fields
+    if (data.attending === 'yes') {
+      if (!data['plus-one'] || !data.transport) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: 'Please answer all required questions'
+          }),
+          { 
+            status: 400,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'POST, OPTIONS',
+              'Access-Control-Allow-Headers': 'Content-Type'
+            }
+          }
+        );
+      }
+
+      // If they have a plus one, validate the name
+      if (data['plus-one'] === 'yes' && !data['plus-one-name']) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: 'Please provide your plus one\'s name'
+          }),
+          { 
+            status: 400,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'POST, OPTIONS',
+              'Access-Control-Allow-Headers': 'Content-Type'
+            }
+          }
+        );
+      }
+    }
+
     // Check if environment variable is set
     if (!import.meta.env.GOOGLE_SCRIPT_URL) {
       console.error('GOOGLE_SCRIPT_URL environment variable is not set');

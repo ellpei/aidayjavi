@@ -262,11 +262,11 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 							<label for="plus-one">¿Vienes con acompañante? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="plus-one" value="yes" required>
+									<input type="radio" name="plus-one" value="yes">
 									<span>Sí, vendré con alguien</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="plus-one" value="no" required>
+									<input type="radio" name="plus-one" value="no">
 									<span>No, vendré solo/a</span>
 								</label>
 							</div>
@@ -274,18 +274,18 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 
 						<div class="form-group" id="plus-one-name-group">
 							<label for="plus-one-name">Indica nombre del acompañante *</label>
-							<input type="text" id="plus-one-name" name="plus-one-name" required>
+							<input type="text" id="plus-one-name" name="plus-one-name">
 						</div>
 
 						<div class="form-group">
 							<label for="transport">¿Vas a usar la guagua para ir y volver de la Boda? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="transport" value="yes" required>
+									<input type="radio" name="transport" value="yes">
 									<span>Sí, usaré la guagua</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="transport" value="no" required>
+									<input type="radio" name="transport" value="no">
 									<span>No, iré por mi cuenta</span>
 								</label>
 							</div>
@@ -300,11 +300,11 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 							<label for="teide-activity">¿Quieres hacer la actividad de ascensión al Teide en la madrugada del Jueves 14? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="teide-activity" value="yes" required>
+									<input type="radio" name="teide-activity" value="yes">
 									<span>Sí, me apunto al reto</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="teide-activity" value="no" required>
+									<input type="radio" name="teide-activity" value="no">
 									<span>No</span>
 								</label>
 							</div>
@@ -314,11 +314,11 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 							<label for="guided-tour">¿Quieres realizar la ruta guiada por el Parque Nacional durante la mañana del Jueves 14? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="guided-tour" value="yes" required>
+									<input type="radio" name="guided-tour" value="yes">
 									<span>Sí, me apunto a la ruta guiada</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="guided-tour" value="no" required>
+									<input type="radio" name="guided-tour" value="no">
 									<span>No</span>
 								</label>
 							</div>
@@ -328,11 +328,11 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 							<label for="guachinche">¿Te apuntas a una buena comilona en un Guachinche Canario el Jueves 14? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="guachinche" value="yes" required>
+									<input type="radio" name="guachinche" value="yes">
 									<span>¡Sí, me apunto a comer!</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="guachinche" value="no" required>
+									<input type="radio" name="guachinche" value="no">
 									<span>No podré asistir</span>
 								</label>
 							</div>
@@ -342,11 +342,11 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 							<label for="preboda">¿Vas a venir a la Preboda del Viernes por la tarde en la playa? *</label>
 							<div class="radio-group">
 								<label class="radio-label">
-									<input type="radio" name="preboda" value="yes" required>
+									<input type="radio" name="preboda" value="yes">
 									<span>¡Sí, estaré allí!</span>
 								</label>
 								<label class="radio-label">
-									<input type="radio" name="preboda" value="no" required>
+									<input type="radio" name="preboda" value="no">
 									<span>No podré asistir</span>
 								</label>
 							</div>
@@ -1411,6 +1411,21 @@ const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 					if (!data.name || !data.email || !data.attending) {
 						alert('Por favor, completa todos los campos obligatorios.');
 						return;
+					}
+
+					// Validación adicional solo si está asistiendo
+					if (data.attending === 'yes') {
+						if (!data['plus-one'] || !data.transport || !data['teide-activity'] || 
+							!data['guided-tour'] || !data.guachinche || !data.preboda) {
+							alert('Por favor, responde todas las preguntas obligatorias.');
+							return;
+						}
+
+						// Validar nombre del acompañante si es necesario
+						if (data['plus-one'] === 'yes' && !data['plus-one-name']) {
+							alert('Por favor, indica el nombre de tu acompañante.');
+							return;
+						}
 					}
 
 					try {
